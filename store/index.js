@@ -1,14 +1,16 @@
-import axios from 'axios';
+import Vue from 'vue'
+import Vuex from 'vuex'
+import axios from "axios";
+
+Vue.use(Vuex);
 
 // holds your root state
 export const state = () => ({
-  counter: 0,
   products: []
 })
 
 // contains your actions
 export const actions = {
-
    async loadProducts ({ commit }) {
      try {
         const response = await axios.get('https://fakestoreapi.com/products');
