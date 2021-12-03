@@ -4,25 +4,22 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+
 export default {
   data() {
     return {
-      products: {}
+    }
+  },
+  computed: {
+    products () {
+      return this.$store.getters.getProducts
     }
   },
   methods: {
-    async getProducts() {
-        try {
-          const response = await axios.get('https://fakestoreapi.com/products');
-          this.products = response.data;
-        } catch(error) {
-          console.log(error);
-        }
-    }
+
   },
   created() {
-    this.getProducts();
+    this.$store.dispatch('loadProducts')
   }
 }
 </script>
