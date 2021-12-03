@@ -4,16 +4,16 @@
   >
     <v-img
       height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      :src="product.image"
     ></v-img>
-    <v-card-title>Cafe Badilico</v-card-title>
+    <v-card-title class="product__title">{{ product.title }}</v-card-title>
     <v-card-text>
       <v-row
         align="center"
         class="mx-0"
       >
         <v-rating
-          :value="4.5"
+          :value="product.rating.rate"
           color="amber"
           dense
           half-increments
@@ -22,21 +22,18 @@
         ></v-rating>
 
         <div class="grey--text ms-4">
-          4.5 (413)
+          {{ product.rating.rate }} ({{ product.rating.count }})
         </div>
       </v-row>
 
       <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
+        {{ product.category }}
       </div>
 
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+      <div>{{ product.description | truncate(100) }}</div>
     </v-card-text>
     <v-divider class="mx-4"></v-divider>
-    <v-card-title>Tonight's availability</v-card-title>
-    <v-card-text>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga dolorem magnam, ad totam dolores quibusdam, omnis soluta voluptates obcaecati sequi nihil nesciunt vitae molestias consequatur nostrum quae enim, at optio.
-    </v-card-text>
+    <v-card-title>{{ product.price }}</v-card-title>
     <v-card-actions>
       <v-btn
         color="deep-purple lighten-2"
@@ -47,3 +44,24 @@
     </v-card-actions>
   </v-card>
 </template>
+<script>
+export default {
+  props: ['product'],
+  filters: {
+        truncate: function(data,num){
+            const descriptionString = data.split("").slice(0, num).join("") + '...';
+            return descriptionString;
+        }
+  }
+}
+</script>
+<style lang="scss">
+  .product__title {
+    min-height: 110px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+.product__title.v-card__title {
+    align-items: flex-start;
+}
+</style>
