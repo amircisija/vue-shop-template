@@ -10,6 +10,7 @@
 <style lang="scss">
   .ac__container {
     width: 1300px;
+    max-width: 100%;
   }
   h2 {
     font-size: 3em;

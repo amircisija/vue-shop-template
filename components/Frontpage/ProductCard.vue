@@ -4,7 +4,9 @@
   >
     <v-img
       height="250"
+      contain
       :src="product.image"
+      class="img-fluid"
     ></v-img>
     <v-card-title class="product__title">
       {{ product.title }}</v-card-title>
@@ -80,5 +82,8 @@ export default {
   }
 .product__title.v-card__title {
     align-items: flex-start;
+}
+.img-fluid {
+  max-width: 100%;
 }
 </style>
