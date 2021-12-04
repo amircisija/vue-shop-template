@@ -6,7 +6,8 @@ Vue.use(Vuex);
 
 // holds your root state
 export const state = () => ({
-  products: []
+  products: [],
+  cart: []
 })
 
 // contains your actions
@@ -21,6 +22,7 @@ export const actions = {
        console.log(error);
      }
   }
+
 
 }
 // contains your mutations
