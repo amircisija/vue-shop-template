@@ -1,12 +1,13 @@
 <template>
   <v-card
-    class="mx-auto my-12"
+    class="mx-auto mb-5 elevation-5"
   >
     <v-img
       height="250"
       :src="product.image"
     ></v-img>
-    <v-card-title class="product__title">{{ product.title }}</v-card-title>
+    <v-card-title class="product__title">
+      {{ product.title }}</v-card-title>
     <v-card-text>
       <v-row
         align="center"
@@ -33,20 +34,36 @@
       <div>{{ product.description | truncate(100) }}</div>
     </v-card-text>
     <v-divider class="mx-4"></v-divider>
-    <v-card-title>{{ product.price }}</v-card-title>
+    <v-card-title>{{ product.price }} €</v-card-title>
     <v-card-actions>
       <v-btn
         color="deep-purple lighten-2"
         text
+        nuxt
+        :to="`/products/${product.id}`"
       >
-        Reserve
+        View Product
       </v-btn>
+      <NuxtLink :to="`/products/${product.id}`">View Product</NuxtLink>
     </v-card-actions>
   </v-card>
 </template>
 <script>
 export default {
-  props: ['product'],
+  name: 'Product',
+  props: {
+    product: {
+      type: Object
+    }
+  },
+  data() {
+    return {
+    }
+  },
+  methods: {
+
+  },
+/*   props: ['product'], */
   filters: {
         truncate: function(data,num){
             const descriptionString = data.split("").slice(0, num).join("") + '...';

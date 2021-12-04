@@ -21,13 +21,16 @@ export default {
     return {
     }
   },
+  methods: {
+
+  },
   computed: {
     products () {
       return this.$store.getters.getProducts
     }
   },
   created() {
-    this.$store.dispatch('loadProducts')
+    this.$store.dispatch('loadProducts');
   }
 }
 </script>

@@ -20,7 +20,7 @@ export const actions = {
       catch (error) {
        console.log(error);
      }
-   }
+  }
 
 }
 // contains your mutations
