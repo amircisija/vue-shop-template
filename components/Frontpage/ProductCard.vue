@@ -46,7 +46,6 @@
       >
         View Product
       </v-btn>
-      <NuxtLink :to="`/products/${product.id}`">View Product</NuxtLink>
     </v-card-actions>
   </v-card>
 </template>
@@ -60,8 +59,10 @@ export default {
   },
   data() {
     return {
+
     }
   },
+
   methods: {
 
   },

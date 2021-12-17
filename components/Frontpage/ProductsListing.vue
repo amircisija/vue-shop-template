@@ -7,7 +7,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" sm="3" v-for="(product) in products" :key="product.id">
+        <v-col cols="12" sm="3" v-for="product in products" :key="product.id">
             <FrontpageProductCard :product="product"/>
         </v-col>
       </v-row>
